@@ -25,15 +25,20 @@
  */
 'use strict';
 
-angular.module('MusicManager')
+angular.module('supplier.portal')
     .service('TranslationService',
-    ['$q','$translate','$translatePartialLoader', function($q, $translate, $translatePartialLoader) {
-        return function() {
-            $translatePartialLoader.addPart('global');
-            angular.forEach(arguments, function(translationKey) {
-                $translatePartialLoader.addPart(translationKey);
-            });
+    ['$q',
+        '$translate',
+        '$translatePartialLoader',
+        function($q,
+                 $translate,
+                 $translatePartialLoader) {
+            return function() {
+                $translatePartialLoader.addPart('global');
+                angular.forEach(arguments, function(translationKey) {
+                    $translatePartialLoader.addPart(translationKey);
+                });
 
-            return  $translate.refresh();
-        };
-    }]);
+                return  $translate.refresh();
+            };
+        }]);
