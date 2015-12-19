@@ -1,0 +1,46 @@
+<it-busy-indicator is-busy="SearchFilter.isBusy">
+    <div class="row">
+        <div class="col-md-12 jombotron">
+            <div class="form-inline bootstrap-time-picker bootstrap-date-picker"
+                 ng-if="focusedItem[col.propertyType] === 'datetime' &amp;&amp; !useValueSet(focusedItem)">
+                <div class="form-group">
+                    <label class="control-label"><i class="fa fa-calendar"></i></label>
+                    <input type="text" size="10" class="form-control ng-pristine ng-valid ng-touched"
+                           ng-model="selectedProps[col.field]" data-date-format="shortDate" bs-datepicker="">
+                </div>
+            </div>
+            <div it-bottom-glue="" style="position: relative;min-height: 500px">
+                <div style="position:absolute;top:0;bottom:5%;height:auto;right:0;left:0;width:auto;">Liste des
+                    factures
+                </div>
+                <div id="grid1" ui-grid="invoicesGrid" class="grid"  ui-grid-selection ui-grid-pagination ui-grid-auto-resize=""
+                     style="position:absolute;top:5%;bottom:50%;height:auto;right:0;left:0;width:auto;"></div>
+
+                <div style="position:absolute;top:50%;bottom:55%;height:auto;right:0;left:0;width:auto;">Détails des
+                    paiements
+                </div>
+            </div>
+        </div>
+    </div>
+</it-busy-indicator>
+
+<script type="text/ng-template" id="dropDownFilter.html">
+    <div class="ui-grid-filter-container" ng-repeat="colFilter in col.filters">
+        <select class="form-control" ng-model="colFilter.term"
+                ng-options="option.id as option.value | translate for option in colFilter.options.data">
+            <option value="">{{colFilter.emptyOption |translate}}</option>
+
+        </select>
+    </div>
+</script>
+<script type="text/ng-template" id="dateRangeFilter.html">
+    <div class="ui-grid-filter-container" ng-repeat="colFilter in col.filters">
+        <input type="text" class="form-control" ng-model="colFilter.term"  placeholder="{{colFilter.emptyOption | translate}}"
+               data-min-date="01/01/1980" data-max-date="today" data-autoclose="1" name="date2" bs-datepicker>
+    </div>
+</script>
+<script type="text/ng-template" id="stringFilter.html">
+    <div class="ui-grid-filter-container" ng-repeat="colFilter in col.filters">
+        <input type="text" class="form-control" ng-model="colFilter.term" placeholder="{{colFilter.emptyOption | translate}}">
+    </div>
+</script>
