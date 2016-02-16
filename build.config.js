@@ -18,6 +18,9 @@ module.exports = {
 
     closureStart: '(function() {var RELEASE_VERSION="1.0.0";\n',
     closureEnd: '\n})();',
+    
+    distFolder:'dist',
+    srcFolder:'main',
 
     /**
      * Liste des fichiers JS de l'application qui seront minifier pour la prod.
@@ -35,7 +38,11 @@ module.exports = {
         'main/assets/lib/angular-common/dist/assets/lib/vendor.min.js',
         'main/assets/lib/angular-common/dist/app/itesoft.min.js',
         'main/assets/lib/angular-translate-loader-partial/angular-translate-loader-partial.min.js',
-        'main/assets/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js'
+        'main/assets/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
+        'main/assets/lib/angular-dynamic-locale/dist/tmhDynamicLocale.js',
+        'main/assets/lib/angular-local-storage/dist/angular-local-storage.min.js',
+        'main/assets/lib/angular-strap/dist/angular-strap.min.js',
+        'main/assets/lib/angular-strap/dist/angular-strap.tpl.min.js'
     ],
     /**
      *
